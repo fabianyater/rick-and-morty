@@ -1,0 +1,12 @@
+.nav {
+  width: 100%;
+}
+
+.list {
+  width: 100%;
+  list-style: none;
+}
+
+.list li {
+  width: 100%;
+}

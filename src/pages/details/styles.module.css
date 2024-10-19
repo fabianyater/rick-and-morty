@@ -1,0 +1,31 @@
+.back {
+  position: sticky;
+  top: 10px;
+  color: #4cbd00;
+  font-size: 1.5rem;
+}
+
+.character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 90px;
+}
+
+.name {
+  color: #fff;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.image {
+  color: #fff;
+}
+
+@media (max-width: 960px) {
+  .back {
+    left: 100%;
+  }
+}

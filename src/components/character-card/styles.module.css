@@ -1,0 +1,35 @@
+.character {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 6px -6px #000;
+  background-color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  transform-origin: 100 100;
+}
+
+.character:hover .image {
+  transform: scale(1.1);
+}
+
+.name {
+  position: absolute;
+  background-color: #fff;
+  border: 2px solid #000;
+  margin: 0;
+  padding: 10px;
+  font-size: 24px;
+  bottom: -2px;
+  right: -7px;
+  transform: skew(-15deg);
+  color: #000;
+}

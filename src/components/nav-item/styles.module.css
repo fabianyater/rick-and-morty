@@ -1,0 +1,19 @@
+.link {
+  width: 100%;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  gap: 10px;
+}
+
+.link:hover {
+  background-color: #f0f0f03f;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}

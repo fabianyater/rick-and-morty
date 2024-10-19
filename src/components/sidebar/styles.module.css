@@ -1,0 +1,109 @@
+.sidebar {
+  height: 100vh;
+  width: 280px;
+  background-color: purple;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  background: radial-gradient(
+    circle at center,
+    rgba(102, 255, 0, 0.8) 0%,
+    rgba(102, 255, 0, 0.6) 15%,
+    rgba(51, 153, 0, 0.8) 30%,
+    rgba(0, 102, 0, 0.9) 50%,
+    rgba(0, 51, 0, 1) 70%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 200% 200%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.title {
+  color: #fff;
+  text-wrap: balance;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+}
+
+.content {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    z-index: 999;
+    transform: translateX(-100%);
+  }
+
+  .open {
+    transform: translateX(0);
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.toggleButton {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 888;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 960px) {
+  .toggleButton {
+    display: block;
+  }
+
+  .closeButton {
+    display: block;
+  }
+
+  .overlay {
+    display: block;
+    opacity: 1;
+  }
+}

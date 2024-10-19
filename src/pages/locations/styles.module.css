@@ -1,0 +1,14 @@
+.title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 4rem;
+  margin-bottom: 25px;
+}
+
+.locations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}

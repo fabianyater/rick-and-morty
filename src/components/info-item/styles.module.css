@@ -1,0 +1,32 @@
+.info {
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  color: #4cbd00;
+
+  letter-spacing: 2px;
+}
+
+.value {
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.status[data-status='Alive'] {
+  color: #4cbd00;
+}
+
+.status[data-status='Dead'] {
+  color: red;
+}

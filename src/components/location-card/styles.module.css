@@ -1,0 +1,34 @@
+.link {
+  text-decoration: none;
+}
+
+.location {
+  width: max-content;
+  height: auto;
+  background-color: #ffffffe8;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: #000;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name {
+  font-size: 2rem;
+  color: #4cbd00;
+}
+
+.type,
+.dimension {
+  letter-spacing: 2px;
+  gap: 5px;
+}
