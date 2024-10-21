@@ -1,28 +1,38 @@
-import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { CharacterCard } from "../../components/character-card/CharacterCard";
 import { LoadingAnimation } from "../../components/loading/LoadingAnimation";
-import useFetch from "../../hooks/useFetch";
 import styles from "./styles.module.css";
+
+const fetchLocationCharacters = async (locationId) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/location/${locationId}`
+  );
+  const data = await response.json();
+
+  const residents = await Promise.all(
+    data.residents.map((residentUrl) =>
+      fetch(residentUrl).then((res) => res.json())
+    )
+  );
+
+  return residents;
+};
 
 export const CharactersByLocation = () => {
   const { id: locationId } = useParams();
-  const [characters, setCharacters] = useState([]);
-  const { data, loading } = useFetch(
-    `https://rickandmortyapi.com/api/location/${locationId}`
-  );
-  const loaderRef = useRef(null);
 
-  useEffect(() => {
-    if (data?.residents) {
-      setCharacters((prevCharacters) => [...prevCharacters, ...data.residents]);
-    }
-  }, [data]);
+  const { data: characters = [], isLoading } = useQuery({
+    queryKey: ["locationCharacters", locationId],
+    queryFn: () => fetchLocationCharacters(locationId),
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 10 * 60 * 1000,
+  });
 
   return (
     <>
       <h1 className={styles.title}>
-        Characters located in {data?.name || "this location"}{" "}
+        Characters located in {characters[0]?.location?.name || "this location"}
       </h1>
       <section className={styles.characters}>
         {characters.map((character) => (
@@ -34,8 +44,7 @@ export const CharactersByLocation = () => {
           />
         ))}
       </section>
-      {loading && <LoadingAnimation loadingText="Loading Characters..." />}
-      <div ref={loaderRef} className={styles.loader}></div>
+      {isLoading && <LoadingAnimation loadingText="Loading Characters..." />}
     </>
   );
 };
